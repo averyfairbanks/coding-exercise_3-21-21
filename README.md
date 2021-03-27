@@ -34,3 +34,5 @@ Perhaps we could set a temporary variable = to the current value of times before
 ### Removing redundant work and optimizing character check method
 
 I realized I was using two while loops to deal with an issue that was only present in an earlier iteration of the code. Instead, I changed the outer loop to a for loop and merged i and s_idx because there was no reason to have both. Sometimes its hard to realize you're coding for problems that your latest solution has already covered. I needed some distance from this problem.
+
+*see third_optimized.py*
