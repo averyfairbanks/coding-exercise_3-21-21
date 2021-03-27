@@ -53,6 +53,4 @@ __our_dict = d = {‘c’: [0], ‘a’: [4], ‘b’: [1, 2]}__
 
 Then it fills the arrays associated with these keys with the indices that that character appears at in s. Then, each character in t is visited in order, checking the indices associated with it. If the next character has an index that is higher, then we select that as our current index. If it does not, then we pick the smallest index the character appears at and increment times. This is because if we have a smaller index after a larger one, obviously we've loop back around.
 
-The last thing left to do is optimize this search through the indices. I'm imagining that binary search for a value higher than our current index is the first optimization I should make, but I'm still searching for O(n)
-
 *see new_approach.py*
