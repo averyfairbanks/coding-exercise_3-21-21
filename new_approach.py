@@ -7,15 +7,14 @@ def times_repeated(s, t):
         if not d[ch]:
             return -1
 
-        # modified binary search for next highest value
-        inds = d[ch]
-        if inds[-1] < curr_idx:
-            curr_idx = -1
-            break
-        else:
-            curr_idx = binary_search(curr_idx, inds)
+        flag = True
+        for i in d[ch]:
+            if i >= curr_idx:
+                curr_idx = i
+                flag = False
+                break
 
-        if curr_idx == -1:
+        if flag:
             times += 1
             curr_idx = d[ch][0]
 
@@ -33,18 +32,3 @@ def get_dict(s, t):
             d[s[i]].append(i)
 
     return d
-
-
-# modified binary search for next highest value
-def binary_search(idx, inds):
-    if len(inds) == 1:
-        if inds[0] > idx:
-            return inds[0]
-        else:
-            return -1
-
-    mid = len(inds) / 2
-    if inds[mid] > idx:
-        binary_search(idx, inds[0: mid + 1])
-    elif inds[mid] < idx:
-        binary_search(idx, inds[mid + 1:])
