@@ -56,3 +56,42 @@ Then it fills the arrays associated with these keys with the indices that that c
 The last thing left to do is optimize this search through the indices. I'm imagining that binary search for a value higher than our current index is the first optimization I should make, but I'm still searching for O(n)
 
 *see new_approach.py*
+
+### Optimizing our new approach
+***
+
+So I held off in implementing the modified binary search because of a misunderstanding, but I was encouraged to implement it. So in this latest version there is the aforementioned binary search which will find the next highest value. In lieu of a wordy explanation I will attach the notes and examples I used to develop this algorithm:
+
+>split list in half, go to middle index, check if higher or lower than given value. 
+
+    if len(arr) == 1, return arr[0]
+    
+    if higher...
+        go from beginning/low to mid, inclusive
+    if lower...
+        go one plus curr index to end/high of list
+    
+    d[ch] = inds = [0, 2, 3, 7, 8, 9, 11]
+    
+    len(inds)/2 = 3
+    inds[3] = 7
+    
+    inds[3:] = [7, 8, 9, 11]
+    inds[2] = 9
+    
+    inds[2:] = [9, 11] 
+    inds[1] = 11
+    
+    inds[1:0] = [11] return 11
+    
+    ex: 4
+    inds[3] = 7
+    
+    inds[0:4] = [0, 2, 3, 7]
+    inds[2] = 3, too low
+    
+    inds[3:] = [7] return 7
+
+The final code has a check to make sure this last value in the list is actually higher.
+
+*see new_w_bsearch.py*
