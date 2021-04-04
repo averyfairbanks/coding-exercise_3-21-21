@@ -53,6 +53,7 @@ __our_dict = d = {‘c’: [0], ‘a’: [4], ‘b’: [1, 2]}__
 
 Then it fills the arrays associated with these keys with the indices that that character appears at in s. Then, each character in t is visited in order, checking the indices associated with it. If the next character has an index that is higher, then we select that as our current index. If it does not, then we pick the smallest index the character appears at and increment times. This is because if we have a smaller index after a larger one, obviously we've loop back around.
 
+
 The last thing left to do is optimize this search through the indices. I'm imagining that binary search for a value higher than our current index is the first optimization I should make, but I'm still searching for O(n)
 
 *see new_approach.py*
@@ -62,7 +63,7 @@ The last thing left to do is optimize this search through the indices. I'm imagi
 
 So I held off in implementing the modified binary search because of a misunderstanding, but I was encouraged to implement it. So in this latest version there is the aforementioned binary search which will find the next highest value. In lieu of a wordy explanation I will attach the notes and examples I used to develop this algorithm:
 
->split list in half, go to middle index, check if higher or lower than given value. 
+> split list in half, go to middle index, check if higher or lower than given value. 
 
     if len(arr) == 1, return arr[0]
     
